@@ -1,0 +1,192 @@
+
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+    int TypeOfMoney;
+    float AmountOfMoney = 0.0;
+    int ItemChoice = 0;
+    int NumberOfItems = 0;
+    float MoneyEntered = 0.0;
+    float Coins = 0.0;
+    double moneyLeftDouble = 0.0;
+    int moneyLeft = moneyLeftDouble; moneyLeftDouble = moneyLeftDouble - moneyLeft;
+    int fiftyP = 0, twentyP = 0, tenP = 0, fiveP = 0, pound = 0;
+ 
+    cout <<"Hii, welcome to Vending Machine"<< endl;
+ 
+    cout <<"What would you like?:\n (1)Cold Tea\n (2)Energy Drink\n (3)Waffle\n (4)Snickers Bar " << endl;
+ 
+    cin >> ItemChoice;
+ 
+    if (ItemChoice == 0)
+    {
+        cout <<"Sorry something went wrong, please, try again: " << endl;
+        cin >> ItemChoice;
+    }
+ 
+    if (ItemChoice == 1)
+    {
+        cout <<"You chose Cold Tea" << endl;
+        cout <<"How many Cold Teas would you like? " << endl;
+        cin >> NumberOfItems;
+        AmountOfMoney = NumberOfItems * 1.5;
+        cout <<"Please insert the money into machine " << AmountOfMoney << "£ or more to continue" << endl;
+    }
+    if (ItemChoice == 2)
+    {
+        cout <<"You chose Energy Drink" << endl;
+        cout <<"How many Energy Drinks would you like? " << endl;
+        cin >> NumberOfItems;
+        AmountOfMoney = NumberOfItems * 2.0;
+        cout <<"Please insert the money into machine " << AmountOfMoney << "£ or more to continue" << endl;
+    }
+ 
+    if (ItemChoice == 3)
+    {
+        cout <<"You chose Waffle" << endl;
+        cout <<"How many Waffles would you like? " << endl;
+        cin >> NumberOfItems;
+        AmountOfMoney = NumberOfItems * 1.25;
+        cout <<"Please insert the money into machine " << AmountOfMoney << "£ or more to continue" << endl;
+    }
+    
+    if (ItemChoice == 4)
+    {
+        cout <<"You chose Snickers Bar" << endl;
+        cout <<"How many Snickers Bars would you like? " << endl;
+        cin >> NumberOfItems;
+        AmountOfMoney = NumberOfItems * 1.75;
+        cout <<"Please insert the money into machine " << AmountOfMoney << "£ or more to continue" << endl;
+    }
+ 
+    cout <<"What type of money would like to pay with? \n (1)Five Pence\n (2)Ten Pence\n (3)Twenty Pence\n (4)Fifty Pence\n (5)Pound" << endl;
+    cin >> TypeOfMoney;
+ 
+    if (TypeOfMoney == 1)
+    {
+        cout <<"You chose Five Pence" << endl;
+        cout <<"Please enter the coins " << endl;
+        cin >> Coins;
+        MoneyEntered = Coins * 0.05;
+    }
+    if (TypeOfMoney == 2)
+    {
+        cout <<"You chose Ten Pence" << endl;
+        cout <<"Please enter the coins" << endl;
+        cin >> Coins;
+        MoneyEntered = Coins * 0.10;
+    }
+    if (TypeOfMoney == 3)
+    {
+        cout <<"You chose Twenty Pence" << endl;
+        cout <<"Please enter the coins" << endl;
+        cin >> Coins;
+        MoneyEntered = Coins * 0.20;
+    }
+    if (TypeOfMoney == 4)
+    {
+        cout <<"You chose Fifty Pence" << endl;
+        cout <<"Please enter the coins" << endl;
+        cin >> Coins;
+        MoneyEntered = Coins * 0.50;
+    }
+    if (TypeOfMoney == 5)
+    {
+        cout <<"You chose Pound" << endl;
+        cout <<"Please enter the coins" << endl;
+        cin >> Coins;
+        MoneyEntered = Coins * 1.0;
+    }
+ 
+    cout <<"Money entered: " << MoneyEntered << "£" << endl;
+ 
+    moneyLeft = MoneyEntered - AmountOfMoney;
+ 
+    if (moneyLeft < 0)
+    {
+        cout <<"Please enter the coins" << endl;
+        cout <<"Your balance is: " << moneyLeft * (-1) << "£" <<endl;
+    }
+ 
+    if (moneyLeft == 0)
+    {
+        if (NumberOfItems == 1)
+            cout <<"Here is your " << NumberOfItems << " item" << endl;
+        if (NumberOfItems >= 2)
+            cout <<"Here is yours " << NumberOfItems << " items" << endl;
+    }
+ 
+    if (moneyLeft > 0)
+    {
+        if (moneyLeft >= 50)
+            fiftyP = moneyLeft / 50;
+            moneyLeft = moneyLeft % 50;
+ 
+        if (moneyLeft >= 20)
+            twentyP = moneyLeft / 20;
+            moneyLeft = moneyLeft % 20;
+ 
+        if (moneyLeft >= 10)
+            tenP = moneyLeft / 10;
+            moneyLeft = moneyLeft % 10;
+ 
+        if (moneyLeft >= 5)
+            fiveP = moneyLeft / 5;
+            moneyLeft = moneyLeft % 5;
+ 
+        if (moneyLeft >= 1)
+            pound = moneyLeft / 1;
+            moneyLeft = moneyLeft % 1;
+ 
+        moneyLeftDouble = AmountOfMoney - moneyLeft;
+ 
+        if (moneyLeftDouble >= 0.50)
+        {
+            fiftyP = moneyLeftDouble / 0.50;
+            moneyLeftDouble = moneyLeftDouble - ((moneyLeftDouble / 0.50) * 0.50);
+        }
+        if (moneyLeftDouble >= 0.20)
+        {
+            twentyP = moneyLeftDouble / 0.20;
+            moneyLeftDouble = moneyLeftDouble - ((moneyLeftDouble / 0.20) * 0.20);
+        }
+        if (moneyLeftDouble >= 0.10)
+        {
+            tenP = moneyLeftDouble / 0.10;
+            moneyLeftDouble = moneyLeftDouble - ((moneyLeftDouble / 0.10) * 0.10);
+        }
+        if (moneyLeftDouble >= 0.05)
+        {
+            fiveP = moneyLeftDouble / 0.05;
+            moneyLeftDouble = moneyLeftDouble - ((moneyLeftDouble / 0.05) * 0.05);
+        }
+ 
+        if  (fiftyP > 0)
+        {
+            cout << "\n" << fiftyP << " Fifty pence coins \n";
+        }
+        if  (twentyP > 0)
+        {
+            cout << "\n" << twentyP << " Twenty pence coins \n";
+        }
+        if  (tenP > 0)
+        {
+            cout << "\n" << tenP << " Ten pence coins \n";
+        }
+        if  (fiveP > 0)
+        {
+            cout << "\n" << fiveP << " Five pence coins \n";
+        }
+        if  (pound > 0)
+        {
+            cout << "\n" << pound << " Pound coins \n";
+        }
+    }
+    if (NumberOfItems == 1)
+        cout <<"Here is your " << NumberOfItems << " item" << endl;
+    if (NumberOfItems >= 2)
+        cout <<"Here is yours " << NumberOfItems << " items" << endl;
+}
